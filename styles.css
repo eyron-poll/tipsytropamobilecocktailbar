@@ -1,0 +1,215 @@
+/* =========================
+   RESET + BASE THEME
+========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #0f0f0f;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+/* =========================
+   NAVBAR (UNIFIED STYLE)
+========================= */
+.navbar {
+    position: absolute;
+    width: 100%;
+    padding: 22px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+    color: #fff;
+    background: transparent;
+}
+
+.navbar.solid {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(135deg, #1a0f13, #12322b);
+    z-index: 1000;
+}
+
+/* LOGO */
+.logo {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: #fff;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+/* NAV LINKS */
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-links a {
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+    color: #fff;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: #f4b400;
+    text-shadow: 0 0 8px #f4b400;
+}
+
+/* =========================
+   BUTTONS (UNIFIED STYLE)
+========================= */
+.btn-book,
+.btn-primary {
+    font-family: 'Poppins', sans-serif;
+    background: #f4b400;
+    color: #000;
+    padding: 12px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+    display: inline-block;
+    text-transform: uppercase;
+}
+
+.btn-book:hover,
+.btn-primary:hover {
+    box-shadow: 0 0 15px #f4b400;
+    transform: translateY(-2px);
+}
+
+/* =========================
+   HOME SECTION
+========================= */
+.home h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 58px;
+}
+
+.home h1 span {
+    color: #f4b400;
+}
+
+.home p {
+    font-family: 'Poppins', sans-serif;
+    margin: 20px 0;
+    color: #ddd;
+}
+
+/* =========================
+   ABOUT SECTION
+========================= */
+.about {
+    padding: 80px 60px;
+    background: linear-gradient(135deg, #1a0f13, #12322b);
+}
+
+.about-content h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    margin: 15px 0;
+}
+
+/* =========================
+   FOOTER
+========================= */
+footer h3,
+footer h4 {
+    font-family: 'Playfair Display', serif;
+    color: #f4b400;
+    margin-bottom: 15px;
+}
+
+footer p,
+footer ul li a {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* ==============================================
+   RESPONSIVE (MOBILE)
+================================================= */
+@media (max-width: 768px) {
+
+    /* NAVBAR */
+    .navbar,
+    .navbar.solid {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 15px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: #000;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        z-index: 2000;
+    }
+
+    /* HIDE NAV LINKS (mobile clean UI) */
+    .nav-links {
+        display: none;
+    }
+
+    /* LOGO */
+    .logo {
+        font-size: 16px;
+        letter-spacing: 1.5px;
+    }
+
+    /* BOOK BUTTON */
+    .btn-book {
+        padding: 10px 22px;
+        font-size: 11px;
+        font-weight: 800;
+        border-radius: 50px;
+        background: #f4b400;
+    }
+
+    /* HOME TEXT */
+    .home h1 {
+        font-size: 36px;
+    }
+
+    /* ABOUT */
+    .about {
+        padding: 50px 20px;
+        padding-top: 100px;
+    }
+
+    .about-content h2 {
+        font-size: 32px;
+    }
+
+    /* FOOTER */
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+
+    .footer-container > div {
+        flex: 1 1 100%;
+    }
+
+    .social {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+    }
+}
+

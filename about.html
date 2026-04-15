@@ -7,7 +7,6 @@
     
     <link rel="icon" type="image/jpeg" href="images/logo.jpg">
     
-    <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,400&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
@@ -42,7 +41,6 @@
             z-index: 1000;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
             box-sizing: border-box;
-            transition: all 0.3s ease;
         }
 
         .logo {
@@ -50,17 +48,24 @@
             letter-spacing: 2px;
             color: #fff;
             text-decoration: none;
-            font-family: var(--font-poppins);
             font-size: 18px;
             text-transform: uppercase;
+        }
+
+        /* Hamburger Icon */
+        .hamburger {
+            display: none;
+            color: white;
+            font-size: 28px;
+            cursor: pointer;
+            z-index: 1001;
+            margin-left: 15px;
         }
 
         .nav-links {
             display: flex;
             list-style: none;
             gap: 35px;
-            margin: 0;
-            padding: 0;
             margin-left: auto;
             margin-right: 50px;
         }
@@ -89,7 +94,6 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             white-space: nowrap;
-            display: inline-block;
         }
 
         .btn-book:hover {
@@ -97,33 +101,7 @@
             transform: scale(1.05);
         }
 
-        @media (max-width: 768px) {
-            .navbar {
-                padding: 15px 20px;
-                background: #000000;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            }
-
-            .logo {
-                font-size: 16px;
-                letter-spacing: 1.5px;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-            .btn-book {
-                padding: 10px 22px;
-                font-size: 11px;
-                font-weight: 800;
-            }
-
-            .about {
-                padding-top: 100px;
-            }
-        }
-
+        /* --- ABOUT SECTION --- */
         .about {
             padding-top: 160px; 
             padding-bottom: 100px;
@@ -178,7 +156,7 @@
 
         .about-content { flex: 1; min-width: 300px; }
         .about-label { color: var(--accent-gold); font-size: 14px; letter-spacing: 2px; font-weight: 600; }
-        .about-content h2 { font-size: 45px; margin: 15px 0; font-family: var(--font-poppins); }
+        .about-content h2 { font-size: 45px; margin: 15px 0; font-family: var(--font-poppins); line-height: 1.2;}
         .about-content h2 span { color: var(--accent-gold); font-family: var(--font-display); font-style: italic; }
         .about-content p { color: #ccc; line-height: 1.8; margin-bottom: 20px; font-size: 15px; }
 
@@ -191,8 +169,9 @@
 
         .features div { font-weight: 600; font-size: 14px; }
 
+        /* --- FOOTER --- */
         .footer {
-            background: #0a0a0a;
+            background: #151515;
             padding: 60px 20px 20px;
             border-top: 1px solid rgba(255,255,255,0.05);
         }
@@ -216,21 +195,29 @@
 
         .footer-links ul { list-style: none; padding: 0; }
         .footer-links ul li { margin-bottom: 10px; }
-        .footer-links ul li a { color: #ccc; text-decoration: none; font-size: 14px; }
+        .footer-links ul li a {
+            color: #f1f1f1;
+            text-decoration: none;
+            font-size: 14px;
+            transition: 0.3s;
+        }
         .footer-links ul li a:hover { color: var(--accent-gold); }
 
-        .footer-contact p { font-size: 14px; color: #ccc; margin-bottom: 10px; }
+        .footer-about p,
+        .footer-contact p { font-size: 14px; color: #f1f1f1; margin-bottom: 10px; line-height: 1.7; }
 
         .social-icon {
-            display: inline-block;
+            display: inline-flex;
             background: #222;
             color: #fff;
             width: 32px;
             height: 32px;
-            line-height: 32px;
-            text-align: center;
+            align-items: center;
+            justify-content: center;
             border-radius: 50%;
             text-decoration: none;
+            margin-right: 10px;
+            transition: 0.3s;
         }
 
         .social-icon:hover { background: var(--accent-gold); color: #000; }
@@ -244,8 +231,102 @@
             font-size: 12px;
         }
 
-        .menu-toggle, .menu-toggle i, .bi-list, .bi-x-lg {
-            display: none !important;
+        /* --- MOBILE RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .navbar { 
+                padding: 15px 20px; 
+                background: #000;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            .logo { font-size: 15px; }
+
+            .hamburger {
+                display: block; 
+                order: 3;
+            }
+
+            .btn-book {
+                order: 2;
+                padding: 8px 15px;
+                font-size: 11px;
+                margin-left: auto;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(0, 0, 0, 0.98);
+                padding: 30px 20px;
+                text-align: center;
+                gap: 20px;
+                border-bottom: 1px solid var(--accent-gold);
+                margin: 0;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                width: 100%;
+                text-align: center;
+            }
+
+            .nav-links a {
+                display: block;
+                width: 100%;
+                text-align: center;
+            }
+
+            .about {
+                padding-top: 100px;
+            }
+
+            .about-content h2 {
+                font-size: 32px;
+            }
+
+            .footer {
+                padding: 58px 34px 20px;
+            }
+            .footer-container {
+                flex-direction: column;
+                gap: 14px;
+            }
+            .footer-about, .footer-links, .footer-contact {
+                flex: none;
+                max-width: 520px;
+                margin: 0;
+            }
+            .footer h3, .footer h4 {
+                margin-bottom: 8px;
+                font-size: 22px;
+            }
+            .footer-links ul li {
+                margin-bottom: 7px;
+            }
+            .footer-links ul li a {
+                font-size: 15px;
+                text-transform: uppercase;
+            }
+            .footer-about p, .footer-contact p {
+                font-size: 15px;
+            }
+            .social-icon {
+                width: 40px;
+                height: 40px;
+                margin-right: 14px;
+            }
+            .footer-bottom {
+                margin-top: 18px;
+                padding-top: 14px;
+            }
         }
     </style>
 </head>
@@ -255,7 +336,7 @@
     <nav class="navbar">
         <a href="index.html" class="logo">TIPSY TROPA</a>
 
-        <ul class="nav-links">
+        <ul class="nav-links" id="navMenu">
             <li><a href="index.html">HOME</a></li>
             <li><a href="about.html">ABOUT US</a></li>
             <li><a href="events.html">EVENTS</a></li>
@@ -265,6 +346,7 @@
         </ul>
 
         <a href="booking.html" class="btn-book">BOOK US</a>
+        <i class="bi bi-list hamburger" id="hamburger"></i>
     </nav>
 </header>
 
@@ -292,6 +374,21 @@
     </div>
 </section>
 
+<script>
+    /* --- HAMBURGER MENU TOGGLE --- */
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('navMenu');
+
+    hamburger.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+        if (navMenu.classList.contains('active')) {
+            hamburger.classList.replace('bi-list', 'bi-x');
+        } else {
+            hamburger.classList.replace('bi-x', 'bi-list');
+        }
+    });
+</script>
+
 <footer class="footer">
     <div class="footer-container">
         <div class="footer-about">
@@ -317,14 +414,14 @@
             <p>Phone: 0962 - 939 - 8155</p>
             <p>Address: Guagua, Pampanga</p>
             <div class="social-icons">
-                <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
-                <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=61555695737139" target="_blank" class="social-icon"><i class="bi bi-facebook"></i></a>
+                <a href="https://www.instagram.com/tipsytropa/" target="_blank" class="social-icon"><i class="bi bi-instagram"></i></a>
             </div>
         </div>
     </div>
 
     <div class="footer-bottom">
-        <p>© 2024 Tipsy Tropa. All Rights Reserved.</p>
+        <p>© 2026 Tipsy Tropa. All Rights Reserved.</p>
     </div>
 </footer>
 

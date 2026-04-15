@@ -41,6 +41,7 @@
             background: linear-gradient(to right, #1a0b0b 0%, #111111 50%, #0d1411 100%);
             z-index: 1000;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            box-sizing: border-box;
         }
 
         .logo {
@@ -50,6 +51,15 @@
             text-decoration: none;
             font-size: 18px;
             text-transform: uppercase;
+        }
+
+        .hamburger {
+            display: none;
+            color: white;
+            font-size: 28px;
+            cursor: pointer;
+            z-index: 1001;
+            margin-left: 15px;
         }
 
         .nav-links {
@@ -136,7 +146,6 @@
             padding: 0 20px;
         }
 
-        /* --- UPDATED BADGE & BUTTON DESIGN --- */
         .badge {
             display: inline-block;
             color: var(--accent-gold);
@@ -153,7 +162,7 @@
 
         .home-content h1 {
             font-family: var(--font-display);
-            font-size: clamp(40px, 8vw, 70px);
+            font-size: clamp(32px, 8vw, 70px);
             line-height: 1.1;
             margin-bottom: 20px;
         }
@@ -164,7 +173,7 @@
         }
 
         .home-content p {
-            font-size: 18px;
+            font-size: 16px;
             margin-bottom: 35px;
             opacity: 0.9;
             font-weight: 300;
@@ -172,41 +181,24 @@
 
         .buttons {
             display: flex;
-            gap: 20px;
+            gap: 15px;
             justify-content: center;
         }
 
-        .btn-primary {
-            background: var(--accent-gold);
-            color: #000;
-            padding: 16px 32px;
+        .btn-primary, .btn-outline {
+            padding: 14px 28px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 700;
-            font-size: 13px;
+            font-size: 12px;
             letter-spacing: 1px;
             transition: 0.3s;
         }
 
-        .btn-outline {
-            background: transparent;
-            color: #fff;
-            padding: 16px 32px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 13px;
-            letter-spacing: 1px;
-            border: 2px solid #fff;
-            transition: 0.3s;
-        }
+        .btn-primary { background: var(--accent-gold); color: #000; }
+        .btn-outline { background: transparent; color: #fff; border: 2px solid #fff; }
 
-        .btn-primary:hover {
-            background: #fff;
-            transform: translateY(-3px);
-        }
-
-        .btn-outline:hover {
+        .btn-primary:hover, .btn-outline:hover {
             background: #fff;
             color: #000;
             transform: translateY(-3px);
@@ -214,7 +206,7 @@
 
         /* --- FOOTER --- */
         .footer {
-            background: #111;
+            background: #151515;
             color: #fff;
             padding: 60px 20px 20px;
             border-top: 1px solid rgba(255,255,255,0.05);
@@ -240,21 +232,36 @@
             color: var(--accent-gold);
         }
 
+        .footer-about p,
+        .footer-contact p {
+            color: #f1f1f1;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
         .footer-links ul { list-style: none; }
         .footer-links ul li { margin-bottom: 10px; }
-        .footer-links ul li a { color: #ccc; text-decoration: none; transition: 0.3s; }
+        .footer-links ul li a {
+            color: #f1f1f1;
+            text-decoration: none;
+            transition: 0.3s;
+            font-size: 14px;
+        }
         .footer-links ul li a:hover { color: var(--accent-gold); }
 
-        .social-icons { margin-top: 20px; }
+        .social-icons {
+            margin-top: 20px;
+            display: flex;
+            gap: 10px;
+        }
         .social-icon {
-            display: inline-block;
+            display: inline-flex;
             background: #222;
             color: #fff;
             width: 35px;
             height: 35px;
-            line-height: 35px;
-            text-align: center;
-            margin-right: 10px;
+            align-items: center;
+            justify-content: center;
             border-radius: 50%;
             transition: 0.3s;
         }
@@ -270,65 +277,99 @@
             color: #666;
         }
 
-        /* --- RESPONSIVE --- */
-        @media (max-width: 1100px) {
-            .navbar { padding: 20px 40px; }
-        }
-
+        /* --- MOBILE RESPONSIVE --- */
         @media (max-width: 768px) {
-            .nav-links { display: none; }
-            .buttons { flex-direction: column; align-items: center; }
-            .btn-primary, .btn-outline { width: 100%; max-width: 280px; }
+            .navbar { 
+                padding: 15px 20px; 
+                background: #000;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            .logo {
+                font-size: 15px; /* Smaller logo to fit everything */
+            }
+
+            .hamburger {
+                display: block; 
+                order: 3; /* Places hamburger at the far right */
+            }
+
+            .btn-book {
+                order: 2; /* Places button in the middle */
+                padding: 8px 15px;
+                font-size: 11px;
+                margin-left: auto;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(0, 0, 0, 0.98);
+                padding: 30px 20px;
+                text-align: center;
+                gap: 20px;
+                border-bottom: 1px solid var(--accent-gold);
+                margin: 0;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .buttons { 
+                flex-direction: column; 
+                align-items: center; 
+            }
+
+            .btn-primary, .btn-outline { 
+                width: 100%; 
+                max-width: 250px; 
+            }
+
+            .footer {
+                padding: 58px 34px 20px;
+            }
+            .footer-container {
+                flex-direction: column;
+                gap: 14px;
+            }
+            .footer-about, .footer-links, .footer-contact {
+                flex: none;
+                max-width: 520px;
+                margin: 0;
+            }
+            .footer h3, .footer h4 {
+                margin-bottom: 8px;
+                font-size: 22px;
+            }
+            .footer-links ul li {
+                margin-bottom: 7px;
+            }
+            .footer-links ul li a {
+                font-size: 15px;
+                text-transform: uppercase;
+            }
+            .footer-about p, .footer-contact p {
+                font-size: 15px;
+            }
+            .social-icons {
+                margin-top: 10px;
+                gap: 14px;
+            }
+            .social-icon {
+                width: 40px;
+                height: 40px;
+            }
+            .footer-bottom {
+                margin-top: 18px;
+                padding-top: 14px;
+            }
         }
-
-        /* --- RESPONSIVE ADJUSTMENTS --- */
-@media (max-width: 768px) {
-    .navbar { 
-        padding: 15px 20px; 
-        background: #000; 
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .nav-links { display: none; }
-
-    .buttons { 
-        flex-direction: column; 
-        gap: 15px;
-        align-items: center; 
-    }
-
-    .btn-primary, .btn-outline { 
-        width: 100%; 
-        max-width: 280px; 
-    }
-
-    /* Matching the About Page Footer Spacing */
-    .footer {
-        padding: 60px 20px 40px; /* Increased bottom padding */
-    }
-
-    .footer-container {
-        flex-direction: column;
-        text-align: center; /* Centers text like the About page mobile view */
-    }
-
-    .footer-about, .footer-links, .footer-contact {
-        margin: 20px 0; /* Vertical spacing between footer blocks */
-        flex: 1 1 auto;
-    }
-
-    .footer-links ul {
-        padding: 0;
-    }
-
-    .index-about {
-        padding: 60px 20px; /* Adjusting section spacing for mobile */
-    }
-
-    .about-content h2 {
-        font-size: 32px;
-    }
-}
     </style>
 </head>
 <body>
@@ -336,7 +377,8 @@
 <header>
     <nav class="navbar">
         <a href="index.html" class="logo">TIPSY TROPA</a>
-        <ul class="nav-links">
+        
+        <ul class="nav-links" id="navMenu">
             <li><a href="index.html">HOME</a></li>
             <li><a href="about.html">ABOUT US</a></li>
             <li><a href="events.html">EVENTS</a></li>
@@ -344,7 +386,10 @@
             <li><a href="menu.html">MENU</a></li>
             <li><a href="booking.html">CONTACT</a></li>
         </ul>
+
         <a href="booking.html" class="btn-book">BOOK US</a>
+        
+        <i class="bi bi-list hamburger" id="hamburger"></i>
     </nav>
 </header>
 
@@ -365,12 +410,8 @@
 </section>
 
 <script>
-    const images = [
-        'images/background1.jpg',
-        'images/background2.jpg',
-        'images/background3.jpg'
-    ];
-
+    /* --- BACKGROUND SLIDESHOW --- */
+    const images = ['images/background1.jpg', 'images/background2.jpg', 'images/background3.jpg'];
     let index = 0;
     const bg1 = document.getElementById('bg1');
     const bg2 = document.getElementById('bg2');
@@ -382,12 +423,24 @@
         const nextIndex = (index + 1) % images.length;
         const current = bg1.classList.contains('active') ? bg1 : bg2;
         const next = bg1.classList.contains('active') ? bg2 : bg1;
-
         next.style.backgroundImage = `url(${images[nextIndex]})`;
         next.classList.add('active');
         current.classList.remove('active');
         index = nextIndex;
     }, 5000);
+
+    /* --- HAMBURGER MENU TOGGLE --- */
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('navMenu');
+
+    hamburger.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+        if (navMenu.classList.contains('active')) {
+            hamburger.classList.replace('bi-list', 'bi-x');
+        } else {
+            hamburger.classList.replace('bi-x', 'bi-list');
+        }
+    });
 </script>
 
 <footer class="footer">

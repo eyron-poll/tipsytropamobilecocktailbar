@@ -49,6 +49,7 @@
             background: linear-gradient(to right, #1a0b0b 0%, #111111 50%, #0d1411 100%);
             z-index: 1000;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            box-sizing: border-box;
         }
 
         .logo {
@@ -59,6 +60,15 @@
             font-family: var(--font-poppins);
             font-size: 18px;
             text-transform: uppercase;
+        }
+
+        .hamburger {
+            display: none;
+            color: white;
+            font-size: 28px;
+            cursor: pointer;
+            z-index: 1001;
+            margin-left: 15px;
         }
 
         .nav-links {
@@ -125,7 +135,8 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: px;
+            gap: 25px; 
+            padding-bottom: 40px;
         }
 
         .cocktail-card {
@@ -134,7 +145,7 @@
             overflow: hidden;
             border: 1px solid var(--border-color);
             transition: all 0.3s ease;
-            width: calc(33.333% - 27px);
+            width: calc(33.333% - 20px); 
             min-width: 300px;
             backdrop-filter: blur(5px);
         }
@@ -250,22 +261,23 @@
 
         /* --- FOOTER --- */
         .footer {
-            background: #0a0a0a;
+            background: #151515;
+            color: #fff;
             padding: 60px 20px 20px;
-            border-top: 1px solid var(--border-color);
+            border-top: 1px solid rgba(255,255,255,0.05);
         }
 
         .footer-container { 
             display: flex; 
-            flex-wrap: wrap; 
-            justify-content: space-between; 
+            flex-wrap: wrap;
+            justify-content: space-between;
             max-width: 1200px; 
             margin: auto; 
         }
 
         .footer-about, .footer-links, .footer-contact { 
             flex: 1 1 250px; 
-            margin: 15px; 
+            margin: 15px;
         }
 
         .footer h3, .footer h4 { 
@@ -278,73 +290,74 @@
 
         .footer-links ul { list-style: none; padding: 0; }
         .footer-links ul li { margin-bottom: 10px; }
-        
-        .footer-links ul li a { 
-            color: #fff; 
-            text-decoration: none; 
-            transition: 0.3s; 
-            font-size: 14px; 
-            font-family: var(--font-poppins);
-            font-weight: 400;
-        }
-
+        .footer-links ul li a { color: #f1f1f1; text-decoration: none; transition: 0.3s; font-size: 14px; }
         .footer-links ul li a:hover { color: var(--accent-gold); }
-        
-        .footer-contact p, .footer-about p { 
-            font-size: 14px; 
-            color: #fff; 
-            margin-bottom: 10px; 
-            font-family: var(--font-poppins);
-        }
+        .footer-contact p, .footer-about p { font-size: 14px; color: #f1f1f1; margin-bottom: 10px; line-height: 1.7; }
 
-        .social-icons { 
-            margin-top: 20px; 
-            display: flex;
-            gap: 15px;
-        }
-
+        .social-icons { margin-top: 20px; display: flex; gap: 10px; }
         .social-icon {
-            display: inline-block;
+            display: inline-flex;
             background: #222;
             color: #fff;
             width: 35px;
             height: 35px;
-            line-height: 35px;
-            text-align: center;
+            align-items: center;
+            justify-content: center;
             border-radius: 50%;
-            text-decoration: none;
             transition: 0.3s;
-            font-size: 14px;
+            text-decoration: none;
         }
-
         .social-icon:hover { background: var(--accent-gold); color: #000; }
 
         .footer-bottom {
-            text-align: center;
             margin-top: 40px;
+            border-top: 1px solid #222;
             padding-top: 20px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            color: #888;
+            text-align: center;
             font-size: 12px;
-            font-family: var(--font-poppins);
+            color: #666;
         }
 
-        /* --- UNIFIED RESPONSIVE MODE (MOBILE/INSPECT) --- */
+        /* --- MOBILE RESPONSIVE --- */
         @media (max-width: 768px) {
             .navbar {
-                padding: 15px 20px !important;
-                background: #000 !important;
-                display: flex !important;
-                flex-direction: row !important;
-                justify-content: space-between !important;
+                padding: 15px 20px;
+                background: #000;
+                flex-wrap: wrap;
+                gap: 10px;
             }
 
-            .nav-links { display: none !important; }
+            .logo { font-size: 15px; }
+
+            .hamburger {
+                display: block;
+                order: 3;
+            }
 
             .btn-book {
-                padding: 10px 22px !important;
-                font-size: 11px !important;
-                border-radius: 50px !important;
+                order: 2;
+                padding: 8px 15px;
+                font-size: 11px;
+                margin-left: auto;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(0, 0, 0, 0.98);
+                padding: 30px 20px;
+                text-align: center;
+                gap: 20px;
+                border-bottom: 1px solid var(--accent-gold);
+                margin: 0;
+            }
+
+            .nav-links.active {
+                display: flex;
             }
 
             .cocktail-card {
@@ -352,117 +365,67 @@
             }
 
             .package-wrapper {
-                grid-template-columns: 1fr !important;
-                padding: 30px !important;
-                gap: 30px !important;
+                grid-template-columns: 1fr;
+                padding: 30px;
+                gap: 30px;
             }
 
             .footer {
-                background: #000 !important; 
-                text-align: center !important;
-                padding: 40px 20px !important;
+                padding: 58px 34px 20px;
             }
-
-            .footer-container {
-                flex-direction: column !important;
-                align-items: center !important;
-                gap: 5px !important; /* REMOVED BREATHING ROOM HERE */
-            }
-
-            .footer-about, .footer-links, .footer-contact {
-                margin: 0 !important;
-                width: 100% !important;
-                padding-bottom: 10px !important; /* Minimal spacing */
-            }
-
-            .footer-about p {
-                margin-bottom: 0 !important; /* REMOVED MARGIN UNDER ABOUT TEXT */
-            }
-
-            .footer h3, .footer h4 {
-                font-size: 18px !important;
-                margin-bottom: 8px !important; /* Tighter heading space */
-                text-align: center !important;
-                width: 100% !important;
-            }
-
-            .footer-links ul li a {
-                font-size: 14px !important;
-                display: block;
-                padding: 1px 0; /* Minimal padding */
-            }
-
-            .footer-contact p {
-                font-size: 14px !important;
-                text-align: center !important;
-                margin: 0 auto 5px !important;
-            }
-
             .social-icons {
-                justify-content: center !important;
-                margin-top: 10px !important;
+                margin-top: 10px;
+                gap: 14px;
+                justify-content: flex-start;
             }
-
+            .footer-container {
+                flex-direction: column;
+                gap: 14px;
+            }
+            .footer-about, .footer-links, .footer-contact {
+                flex: none;
+                max-width: 520px;
+                margin: 0;
+            }
+            .footer h3, .footer h4 {
+                margin-bottom: 8px;
+                font-size: 22px;
+            }
+            .footer-links ul li {
+                margin-bottom: 7px;
+            }
+            .footer-links ul li a {
+                font-size: 15px;
+                text-transform: uppercase;
+            }
+            .footer-contact p, .footer-about p {
+                font-size: 15px;
+            }
+            .social-icon {
+                width: 40px;
+                height: 40px;
+            }
             .footer-bottom {
-                margin-top: 20px !important;
-                border-top: 1px solid #222 !important;
+                margin-top: 18px;
+                padding-top: 14px;
             }
         }
-        
-        /* --- UPDATED MENU GRID & CARDS --- */
-
-.menu-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    /* Added 25px of space between cards */
-    gap: 25px; 
-    padding-bottom: 40px;
-}
-
-.cocktail-card {
-    background-color: var(--secondary-bg);
-    border-radius: 15px;
-    overflow: hidden;
-    border: 1px solid var(--border-color);
-    transition: all 0.3s ease;
-    /* Updated width: 33.333% minus the gap space 
-       to ensure 3 cards fit perfectly on one row.
-    */
-    width: calc(33.333% - 20px); 
-    min-width: 300px;
-    backdrop-filter: blur(5px);
-}
-
-/* --- RESPONSIVE FIX FOR MOBILE --- */
-
-@media (max-width: 768px) {
-    .menu-grid {
-        /* Slightly tighter gap for mobile screens */
-        gap: 20px;
-    }
-
-    .cocktail-card {
-        /* Cards take full width on mobile */
-        width: 100% !important;
-    }
-}
     </style>
 </head>
 <body>
-
-    <nav class="navbar">
-        <a href="index.html" class="logo">TIPSY TROPA</a>
-        <ul class="nav-links">
-            <li><a href="index.html">HOME</a></li>
-            <li><a href="about.html">ABOUT US</a></li>
-            <li><a href="events.html">EVENTS</a></li>
-            <li><a href="gallery.html">GALLERY</a></li>
-            <li><a href="menu.html">MENU</a></li>
-            <li><a href="booking.html">CONTACT</a></li>
-        </ul>
-         <a href="booking.html" class="btn-book">BOOK US</a>
-    </nav>
+<nav class="navbar">
+    <a href="index.html" class="logo">TIPSY TROPA</a>
+    <ul class="nav-links" id="navMenu">
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="about.html">ABOUT US</a></li>
+        <li><a href="events.html">EVENTS</a></li>
+        <li><a href="gallery.html">GALLERY</a></li>
+        <li><a href="menu.html">MENU</a></li>
+        <li><a href="booking.html">CONTACT</a></li>
+    </ul>
+    <a href="booking.html" class="btn-book">BOOK US</a>
+    <i class="bi bi-list hamburger" id="hamburger"></i>
+</nav>
 
     <div class="menu-container container">
         <header class="section-header">
@@ -489,13 +452,13 @@
             <article class="cocktail-card">
                 <div class="card-image-wrapper">
                     <span class="card-badge">Popular</span>
-                    <img src="images/menu2.jpg" alt="Mojito">
+                    <img src="images/menu2.jpg" alt="Margarita">
                 </div>
                 <div class="card-body">
                     <h2 class="cocktail-name">Margarita</h2>
                     <p class="cocktail-description">Want a taste of paradise? Have a sip of this exotic flavor.</p>
                     <div class="card-footer">
-                        <p class="ingredients-list">Tequila · Tripple Sec · Lime Juice · Simple Syrup· Salt</p>
+                        <p class="ingredients-list">Tequila · Triple Sec · Lime Juice · Simple Syrup· Salt</p>
                         <span class="price-tag">P 140 / cup</span>
                     </div>
                 </div>
@@ -508,7 +471,7 @@
                 </div>
                 <div class="card-body">
                     <h2 class="cocktail-name">Tequila Sunrise</h2>
-                    <p class="cocktail-description">Like a real sunrise, but you don't have to wake up early to enjoy it..</p>
+                    <p class="cocktail-description">Like a real sunrise, but you don't have to wake up early to enjoy it.</p>
                     <div class="card-footer">
                         <p class="ingredients-list">Tequila · Orange Juice · Grenadine</p>
                         <span class="price-tag">P 140 / cup</span>
@@ -525,7 +488,7 @@
                     <h2 class="cocktail-name">Zeri's Spark Surge</h2>
                     <p class="cocktail-description">From the land of Zaun! Our Spark is ready! Zeri's rushing her way to bring you her go-to drink!</p>
                     <div class="card-footer">
-                        <p class="ingredients-list">Tequila · Melon Liqueur · Pinapple Juice</p>
+                        <p class="ingredients-list">Tequila · Melon Liqueur · Pineapple Juice</p>
                         <span class="price-tag">P 140 / cup</span>
                     </div>
                 </div>
@@ -538,7 +501,7 @@
                 </div>
                 <div class="card-body">
                     <h2 class="cocktail-name">Cuba Libre</h2>
-                    <p class="cocktail-description">Let us serve you something classic..</p>
+                    <p class="cocktail-description">Let us serve you something classic.</p>
                     <div class="card-footer">
                         <p class="ingredients-list">Rum · Coke · Lemon Juice</p>
                         <span class="price-tag">P 140 / cup</span>
@@ -599,49 +562,52 @@
         </div>
     </section>
 
-    <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-about">
-                <h3>TIPSY TROPA</h3>
-                <p>Premium Mobile Cocktail Bar serving unforgettable experiences for weddings, parties, and special events.</p>
-            </div>
-
-            <div class="footer-links">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="index.html">HOME</a></li>
-                    <li><a href="about.html">ABOUT US</a></li>
-                    <li><a href="events.html">EVENTS</a></li>
-                    <li><a href="gallery.html">GALLERY</a></li>
-                    <li><a href="menu.html">MENU</a></li>
-                    <li><a href="booking.html">CONTACT</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-contact">
-                <h4>Contact Us</h4>
-                <p>Email: tipsytropa2024@gmail.com</p>
-                <p>Phone: 0962 - 939 - 8155</p>
-                <p>Address: Guagua, Pampanga</p>
-
-                <p>Follow us on social media:</p>
-
-                <div class="social-icons">
-                    <a href="https://www.facebook.com/profile.php?id=61555695737139" target="_blank" class="social-icon">
-                        <i class="bi bi-facebook"></i>
-                    </a>
-
-                    <a href="https://www.instagram.com/tipsytropa/" target="_blank" class="social-icon">
-                        <i class="bi bi-instagram"></i>
-                    </a>
-                </div>
+   <footer class="footer">
+    <div class="footer-container">
+        <div class="footer-about">
+            <h3>TIPSY TROPA</h3>
+            <p>Premium Mobile Cocktail Bar serving unforgettable experiences for weddings, parties, and special events.</p>
+        </div>
+        <div class="footer-links">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="about.html">ABOUT US</a></li>
+                <li><a href="events.html">EVENTS</a></li>
+                <li><a href="gallery.html">GALLERY</a></li>
+                <li><a href="menu.html">MENU</a></li>
+                <li><a href="booking.html">CONTACT</a></li>
+            </ul>
+        </div>
+        <div class="footer-contact">
+            <h4>Contact Us</h4>
+            <p>Email: tipsytropa2024@gmail.com</p>
+            <p>Phone: 0962 - 939 - 8155</p>
+            <p>Address: Guagua, Pampanga</p>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/profile.php?id=61555695737139" target="_blank" class="social-icon"><i class="bi bi-facebook"></i></a>
+                <a href="https://www.instagram.com/tipsytropa/" target="_blank" class="social-icon"><i class="bi bi-instagram"></i></a>
             </div>
         </div>
+    </div>
+    <div class="footer-bottom">
+        <p>© 2026 Tipsy Tropa. All Rights Reserved.</p>
+    </div>
+</footer>
 
-        <div class="footer-bottom">
-            <p>© 2024 Tipsy Tropa. All Rights Reserved.</p>
-        </div>
-    </footer>
+<script>
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('navMenu');
+
+    hamburger.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+        if (navMenu.classList.contains('active')) {
+            hamburger.classList.replace('bi-list', 'bi-x');
+        } else {
+            hamburger.classList.replace('bi-x', 'bi-list');
+        }
+    });
+</script>
 
 </body>
 </html>

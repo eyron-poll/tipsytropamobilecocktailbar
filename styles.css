@@ -1,215 +1,179 @@
-/* =========================
-   RESET + BASE THEME
-========================= */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* --- SHARED VARIABLES --- */
+:root {
+    --accent-gold: #f4b400;
+    --nav-bg: linear-gradient(to right, #1a0b0b 0%, #111111 50%, #0d1411 100%);
+    --footer-bg: #111; /* Matched to Index background */
+    --font-poppins: 'Poppins', sans-serif;
+    --font-display: 'Playfair Display', serif;
 }
 
-body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #0f0f0f;
-    color: #fff;
-    overflow-x: hidden;
-}
+/* --- RESET & BASE --- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: var(--font-poppins); background-color: #000; color: #fff; overflow-x: hidden; }
 
-/* =========================
-   NAVBAR (UNIFIED STYLE)
-========================= */
+/* --- UNIFIED NAVBAR --- */
 .navbar {
-    position: absolute;
-    width: 100%;
-    padding: 22px 60px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 10;
-    color: #fff;
-    background: transparent;
-}
-
-.navbar.solid {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    background: linear-gradient(135deg, #1a0f13, #12322b);
-    z-index: 1000;
+    padding: 25px 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--nav-bg);
+    z-index: 2000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    transition: 0.3s ease;
 }
 
-/* LOGO */
 .logo {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
+    font-weight: 700;
     letter-spacing: 2px;
     color: #fff;
-    text-transform: uppercase;
     text-decoration: none;
+    font-size: 18px;
+    text-transform: uppercase;
 }
 
-/* NAV LINKS */
 .nav-links {
     display: flex;
     list-style: none;
-    gap: 30px;
+    gap: 35px;
+    align-items: center;
 }
 
 .nav-links a {
-    font-family: 'Poppins', sans-serif;
     text-decoration: none;
-    color: #fff;
-    font-size: 14px;
-    transition: 0.3s;
-}
-
-.nav-links a:hover,
-.nav-links a.active {
-    color: #f4b400;
-    text-shadow: 0 0 8px #f4b400;
-}
-
-/* =========================
-   BUTTONS (UNIFIED STYLE)
-========================= */
-.btn-book,
-.btn-primary {
-    font-family: 'Poppins', sans-serif;
-    background: #f4b400;
-    color: #000;
-    padding: 12px 20px;
-    border-radius: 25px;
-    text-decoration: none;
+    color: white;
+    font-size: 13px;
     font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
     transition: 0.3s;
-    display: inline-block;
+}
+
+.nav-links a:hover { color: var(--accent-gold); }
+
+.hamburger {
+    display: none;
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+/* --- UNIFIED FOOTER (MATCHED TO INDEX) --- */
+.footer {
+    background: var(--footer-bg);
+    color: #fff;
+    padding: 60px 20px 20px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.footer-about, .footer-links, .footer-contact {
+    flex: 1 1 250px;
+    margin: 15px;
+}
+
+.footer h3, .footer h4 {
+    font-family: var(--font-display);
+    margin-bottom: 20px;
+    font-size: 20px;
+    color: var(--accent-gold);
     text-transform: uppercase;
 }
 
-.btn-book:hover,
-.btn-primary:hover {
-    box-shadow: 0 0 15px #f4b400;
-    transform: translateY(-2px);
+.footer-links ul { 
+    list-style: none; 
+    padding: 0;
 }
 
-/* =========================
-   HOME SECTION
-========================= */
-.home h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 58px;
+.footer-links ul li { margin-bottom: 10px; }
+
+.footer-links ul li a { 
+    color: #ccc; 
+    text-decoration: none; 
+    transition: 0.3s; 
+    font-size: 14px;
 }
 
-.home h1 span {
-    color: #f4b400;
+.footer-links ul li a:hover { color: var(--accent-gold); }
+
+/* Circle Social Icons from Index */
+.social-icons { 
+    display: flex; 
+    gap: 10px; 
+    margin-top: 20px; 
 }
 
-.home p {
-    font-family: 'Poppins', sans-serif;
-    margin: 20px 0;
-    color: #ddd;
+.social-icon {
+    display: inline-block;
+    background: #222;
+    color: #fff;
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    border-radius: 50%;
+    transition: 0.3s;
+    text-decoration: none;
 }
 
-/* =========================
-   ABOUT SECTION
-========================= */
-.about {
-    padding: 80px 60px;
-    background: linear-gradient(135deg, #1a0f13, #12322b);
+.social-icon:hover { 
+    background: var(--accent-gold); 
+    color: #000; 
 }
 
-.about-content h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 42px;
-    margin: 15px 0;
+/* Copyright Section from Index */
+.footer-bottom {
+    margin-top: 40px;
+    border-top: 1px solid #222;
+    padding-top: 20px;
+    text-align: center;
+    font-size: 12px;
+    color: #666;
 }
 
-/* =========================
-   FOOTER
-========================= */
-footer h3,
-footer h4 {
-    font-family: 'Playfair Display', serif;
-    color: #f4b400;
-    margin-bottom: 15px;
-}
-
-footer p,
-footer ul li a {
-    font-family: 'Poppins', sans-serif;
-}
-
-/* ==============================================
-   RESPONSIVE (MOBILE)
-================================================= */
-@media (max-width: 768px) {
-
-    /* NAVBAR */
-    .navbar,
-    .navbar.solid {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        padding: 15px 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background: #000;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        z-index: 2000;
-    }
-
-    /* HIDE NAV LINKS (mobile clean UI) */
+/* --- MOBILE RESPONSIVE --- */
+@media (max-width: 992px) {
+    .navbar { padding: 15px 30px; }
+    .hamburger { display: block; }
+    
     .nav-links {
-        display: none;
-    }
-
-    /* LOGO */
-    .logo {
-        font-size: 16px;
-        letter-spacing: 1.5px;
-    }
-
-    /* BOOK BUTTON */
-    .btn-book {
-        padding: 10px 22px;
-        font-size: 11px;
-        font-weight: 800;
-        border-radius: 50px;
-        background: #f4b400;
-    }
-
-    /* HOME TEXT */
-    .home h1 {
-        font-size: 36px;
-    }
-
-    /* ABOUT */
-    .about {
-        padding: 50px 20px;
-        padding-top: 100px;
-    }
-
-    .about-content h2 {
-        font-size: 32px;
-    }
-
-    /* FOOTER */
-    .footer-container {
+        position: fixed;
+        top: 70px;
+        right: -100%;
+        width: 100%;
+        height: calc(100vh - 70px);
+        background: #111;
         flex-direction: column;
-        text-align: center;
-        gap: 30px;
-    }
-
-    .footer-container > div {
-        flex: 1 1 100%;
-    }
-
-    .social {
-        display: flex;
         justify-content: center;
-        gap: 10px;
+        gap: 40px;
+        transition: 0.4s ease-in-out;
+        z-index: 1999;
+    }
+    .nav-links.active { right: 0; }
+
+    /* Footer Mobile Mode: Stack and Center */
+    .footer-container { 
+        flex-direction: column; 
+        align-items: center; 
+        text-align: center; 
+    }
+
+    .footer-about, .footer-links, .footer-contact {
+        margin: 20px 0;
+    }
+
+    .social-icons { 
+        justify-content: center; 
     }
 }
-

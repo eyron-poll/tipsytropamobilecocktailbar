@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tipsy Tropa | Menu & Packages</title>
 
-    <link rel="icon" type="image/jpeg" href="images/logo.jpg">
+    <link rel="icon" type="image/jpeg" href="images/logos.png">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
@@ -53,13 +53,17 @@
         }
 
         .logo {
-            font-weight: 700;
-            letter-spacing: 2px;
-            color: #fff;
+            display: inline-flex;
+            align-items: center;
             text-decoration: none;
-            font-family: var(--font-poppins);
-            font-size: 18px;
-            text-transform: uppercase;
+            line-height: 0;
+        }
+
+        .logo img {
+            display: block;
+            width: auto;
+            height: 68px;
+            object-fit: contain;
         }
 
         .hamburger {
@@ -80,6 +84,7 @@
         }
 
         .nav-links a {
+            font-family: var(--font-poppins);
             text-decoration: none;
             color: white;
             font-size: 13px;
@@ -97,6 +102,7 @@
             padding: 12px 30px;
             border-radius: 50px;
             text-decoration: none;
+            font-family: var(--font-poppins);
             font-weight: 700;
             font-size: 13px;
             transition: 0.3s;
@@ -198,31 +204,9 @@
         .cocktail-description { font-size: 14px; color: #ccc; margin-bottom: 20px; }
         .card-footer { border-top: 1px solid var(--border-color); padding-top: 15px; }
         .ingredients-list { font-size: 12px; color: var(--accent-gold); margin-bottom: 10px; font-style: italic; }
-        .price-tag { font-size: 15px; font-weight: 600; color: #fff; }
+        .price-tag { font-size: 14px; font-weight: 600; color: #fff; }
 
         /* --- NON-ALCOHOLIC TEXT --- */
-        .non-alcoholic-text {
-            width: 100%;
-            text-align: center;
-            margin-top: 60px;
-            padding: 30px;
-            border-top: 1px dashed var(--border-color);
-        }
-
-        .non-alcoholic-text h3 {
-            font-family: var(--font-display);
-            color: var(--accent-gold);
-            margin-bottom: 10px;
-            font-size: 22px;
-        }
-
-        .non-alcoholic-text p {
-            font-size: 15px;
-            color: #ccc;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
         /* --- PACKAGES --- */
         .packages-section {
             padding: 100px 0;
@@ -260,65 +244,87 @@
         .inclusion-item i { color: var(--accent-gold); width: 20px; }
 
         /* --- FOOTER --- */
+
         .footer {
             background: #151515;
             color: #fff;
-            padding: 60px 20px 20px;
+            padding: 16px 20px 8px;
+            height: 2.5in;
+            box-sizing: border-box;
             border-top: 1px solid rgba(255,255,255,0.05);
         }
 
-        .footer-container { 
-            display: flex; 
-            flex-wrap: wrap;
-            justify-content: space-between;
-            max-width: 1200px; 
-            margin: auto; 
+        .footer-container {
+            display: grid;
+            grid-template-columns: minmax(0, 1.6fr) repeat(2, minmax(180px, 0.8fr));
+            gap: 14px 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+            align-items: start;
         }
 
-        .footer-about, .footer-links, .footer-contact { 
-            flex: 1 1 250px; 
-            margin: 15px;
+        .footer-about, .footer-links, .footer-contact {
+            margin: 0;
         }
 
-        .footer h3, .footer h4 { 
-            font-family: var(--font-display); 
-            color: var(--accent-gold); 
-            margin-bottom: 20px; 
-            font-size: 20px; 
-            text-transform: none;
+        .footer-about {
+            max-width: 420px;
         }
 
-        .footer-links ul { list-style: none; padding: 0; }
-        .footer-links ul li { margin-bottom: 10px; }
-        .footer-links ul li a { color: #f1f1f1; text-decoration: none; transition: 0.3s; font-size: 14px; }
+        .footer-links {
+            justify-self: center;
+        }
+
+        .footer-contact {
+            justify-self: end;
+        }
+
+        .footer h3, .footer h4 {
+            font-family: var(--font-display);
+            margin-bottom: 6px;
+            font-size: 15px;
+            color: var(--accent-gold);
+            letter-spacing: 0.5px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            gap: 4px;
+        }
+        .footer-links ul li { margin-bottom: 0; }
+        .footer-links ul li a { color: #f1f1f1; text-decoration: none; transition: 0.3s; font-size: 13px; }
         .footer-links ul li a:hover { color: var(--accent-gold); }
-        .footer-contact p, .footer-about p { font-size: 14px; color: #f1f1f1; margin-bottom: 10px; line-height: 1.7; }
 
-        .social-icons { margin-top: 20px; display: flex; gap: 10px; }
+        .footer-about p,
+        .footer-contact p { color: #f1f1f1; font-size: 13px; line-height: 1.5; margin-bottom: 2px; }
+
+        .social-icons { margin-top: 8px; display: flex; gap: 8px; }
         .social-icon {
             display: inline-flex;
             background: #222;
             color: #fff;
-            width: 35px;
-            height: 35px;
+            width: 30px;
+            height: 30px;
             align-items: center;
             justify-content: center;
             border-radius: 50%;
             transition: 0.3s;
             text-decoration: none;
+            font-size: 14px;
         }
+
         .social-icon:hover { background: var(--accent-gold); color: #000; }
 
         .footer-bottom {
-            margin-top: 40px;
+            margin-top: 12px;
             border-top: 1px solid #222;
-            padding-top: 20px;
+            padding-top: 8px;
             text-align: center;
-            font-size: 12px;
+            font-size: 11px;
             color: #666;
-        }
-
-        /* --- MOBILE RESPONSIVE --- */
+        }        /* --- MOBILE RESPONSIVE --- */
         @media (max-width: 768px) {
             .navbar {
                 padding: 15px 20px;
@@ -327,7 +333,9 @@
                 gap: 10px;
             }
 
-            .logo { font-size: 15px; }
+            .logo img {
+                height: 56px;
+            }
 
             .hamburger {
                 display: block;
@@ -360,6 +368,12 @@
                 display: flex;
             }
 
+            .nav-links li,
+            .nav-links a {
+                width: 100%;
+                text-align: center;
+            }
+
             .cocktail-card {
                 width: 100% !important;
             }
@@ -370,53 +384,109 @@
                 gap: 30px;
             }
 
-            .footer {
-                padding: 58px 34px 20px;
+            .section-header h2 {
+                font-size: 36px;
             }
-            .social-icons {
-                margin-top: 10px;
+
+            .package-item {
+                font-size: 16px;
+            }
+
+            .non-alcoholic-text p {
+                font-size: 14px;
+            }
+
+            .footer {
+                padding: 18px 16px 10px;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
                 gap: 14px;
+                text-align: left;
+            }
+
+            .footer-links,
+            .footer-contact {
+                justify-self: start;
+            }
+
+            .footer h3,
+            .footer h4 {
+                margin-bottom: 6px;
+            }
+
+            .footer-links ul li a,
+            .footer-about p,
+            .footer-contact p {
+                font-size: 13px;
+            }
+
+            .social-icons {
+                margin-top: 8px;
                 justify-content: flex-start;
             }
-            .footer-container {
-                flex-direction: column;
-                gap: 14px;
-            }
-            .footer-about, .footer-links, .footer-contact {
-                flex: none;
-                max-width: 520px;
-                margin: 0;
-            }
-            .footer h3, .footer h4 {
-                margin-bottom: 8px;
-                font-size: 22px;
-            }
-            .footer-links ul li {
-                margin-bottom: 7px;
-            }
-            .footer-links ul li a {
-                font-size: 15px;
-                text-transform: uppercase;
-            }
-            .footer-contact p, .footer-about p {
-                font-size: 15px;
-            }
-            .social-icon {
-                width: 40px;
-                height: 40px;
-            }
+
             .footer-bottom {
-                margin-top: 18px;
-                padding-top: 14px;
+                margin-top: 10px;
+                padding-top: 8px;
+            }
+        }
+        @media (max-width: 768px) {
+            .section-header h2 {
+                font-size: 36px;
+            }
+
+            .package-item {
+                font-size: 16px;
+            }
+
+            .non-alcoholic-text p {
+                font-size: 14px;
+            }
+
+            .footer {
+                padding: 18px 16px 10px;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 14px;
+                text-align: left;
+            }
+
+            .footer-links,
+            .footer-contact {
+                justify-self: start;
+            }
+
+            .footer h3,
+            .footer h4 {
+                margin-bottom: 6px;
+            }
+
+            .footer-links ul li a,
+            .footer-about p,
+            .footer-contact p {
+                font-size: 13px;
+            }
+
+            .social-icons {
+                margin-top: 8px;
+                justify-content: flex-start;
+            }
+
+            .footer-bottom {
+                margin-top: 10px;
+                padding-top: 8px;
             }
         }
     </style>
 </head>
 <body>
 <nav class="navbar">
-    <a href="index.html" class="logo">TIPSY TROPA</a>
+    <a href="index.html" class="logo" aria-label="Tipsy Tropa Home"><img src="images/LOGO.png" alt="Tipsy Tropa logo"></a>
     <ul class="nav-links" id="navMenu">
-        <li><a href="index.html">HOME</a></li>
         <li><a href="about.html">ABOUT US</a></li>
         <li><a href="events.html">EVENTS</a></li>
         <li><a href="gallery.html">GALLERY</a></li>
@@ -523,12 +593,7 @@
                     </div>
                 </div>
             </article>
-
-            <div class="non-alcoholic-text">
-                <h3>Non-Alcoholic</h3>
-                <p>You Mean Water?: Purified H2O—though we can always whip up a "Virgin" version of the cocktails above by removing the liquor.</p>
-            </div>
-        </main>
+</main>
     </div>
 
     <section class="packages-section">
@@ -571,7 +636,6 @@
         <div class="footer-links">
             <h4>Quick Links</h4>
             <ul>
-                <li><a href="index.html">HOME</a></li>
                 <li><a href="about.html">ABOUT US</a></li>
                 <li><a href="events.html">EVENTS</a></li>
                 <li><a href="gallery.html">GALLERY</a></li>
@@ -591,7 +655,7 @@
         </div>
     </div>
     <div class="footer-bottom">
-        <p>© 2026 Tipsy Tropa. All Rights Reserved.</p>
+        <p>&copy; 2026 Tipsy Tropa. All Rights Reserved.</p>
     </div>
 </footer>
 

@@ -328,7 +328,9 @@
             text-align: center;
             font-size: 11px;
             color: #666;
-        }        /* --- MOBILE RESPONSIVE (FROM INDEX) --- */
+        }
+
+        /* --- MOBILE RESPONSIVE (FROM INDEX) --- */
         @media (max-width: 768px) {
             .navbar { 
                 padding: 15px 20px; 
@@ -382,122 +384,16 @@
                 padding: 120px 20px 50px;
                 text-align: center;
             }
-            .contact-info h1 { font-size: 40px; }
+            .contact-info h1 { font-size: 36px; }
             .contact-info p { margin: 0 auto 40px; }
             .feature-item { text-align: left; }
             .booking-card { padding: 30px 20px; }
             .form-grid { grid-template-columns: 1fr; }
             .form-group.full-width { grid-column: span 1; }
 
-        .footer {
-            background: #151515;
-            color: #fff;
-            padding: 16px 20px 8px;
-            height: 2.5in;
-            box-sizing: border-box;
-            border-top: 1px solid rgba(255,255,255,0.05);
-        }
-
-        .footer-container {
-            display: grid;
-            grid-template-columns: minmax(0, 1.6fr) repeat(2, minmax(180px, 0.8fr));
-            gap: 14px 24px;
-            max-width: 1200px;
-            margin: 0 auto;
-            align-items: start;
-        }
-
-        .footer-about, .footer-links, .footer-contact {
-            margin: 0;
-        }
-
-        .footer-about {
-            max-width: 420px;
-        }
-
-        .footer-links {
-            justify-self: center;
-        }
-
-        .footer-contact {
-            justify-self: end;
-        }
-
-        .footer h3, .footer h4 {
-            font-family: var(--font-display);
-            margin-bottom: 6px;
-            font-size: 15px;
-            color: var(--accent-gold);
-            letter-spacing: 0.5px;
-        }
-
-        .footer-links ul { list-style: none; padding: 0; display: grid; gap: 4px; }
-        .footer-links ul li { margin-bottom: 0; }
-        .footer-links ul li a { color: #f1f1f1; text-decoration: none; transition: 0.3s; font-size: 13px; }
-        .footer-links ul li a:hover { color: var(--accent-gold); }
-
-        .footer-about p,
-        .footer-contact p { color: #f1f1f1; font-size: 13px; line-height: 1.5; margin-bottom: 2px; }
-
-        .social-icons { margin-top: 8px; display: flex; gap: 8px; }
-        .social-icon {
-            display: inline-flex;
-            background: #222;
-            color: #fff;
-            width: 30px;
-            height: 30px;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            transition: 0.3s;
-            text-decoration: none;
-            font-size: 14px;
-        }
-
-        .social-icon:hover { background: var(--accent-gold); color: #000; }
-
-        .footer-bottom {
-            margin-top: 12px;
-            border-top: 1px solid #222;
-            padding-top: 8px;
-            text-align: center;
-            font-size: 11px;
-            color: #666;
-        }
-        @media (max-width: 768px) {
-            .contact-container {
-                grid-template-columns: 1fr;
-                gap: 50px;
-                padding: 120px 20px 50px;
-                text-align: center;
-            }
-
-            .contact-info h1 {
-                font-size: 36px;
-            }
-
-            .contact-info p {
-                margin: 0 auto 40px;
-            }
-
-            .feature-item {
-                text-align: left;
-            }
-
-            .booking-card {
-                padding: 30px 20px;
-            }
-
-            .form-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .form-group.full-width {
-                grid-column: span 1;
-            }
-
             .footer {
                 padding: 18px 16px 10px;
+                height: auto;
             }
 
             .footer-container {
@@ -686,3 +582,11 @@
 
 </body>
 </html>
+
+
+
+
+
+
+
+
